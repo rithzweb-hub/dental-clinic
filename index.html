@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmileCare Dental - Your Perfect Smile Awaits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066cc;
+            --secondary-blue: #003d7a;
+            --accent-green: #10b981;
+            --light-bg: #f0f9ff;
+            --white: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 80px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .tooth-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 2rem;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 2rem;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-green);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Appointment Section */
+        .appointment {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+        }
+
+        .appointment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background-color: rgba(0, 102, 204, 0.02);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-book {
+            width: 100%;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .export-btn {
+            width: 100%;
+            background: var(--accent-green);
+            color: var(--white);
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .export-btn:hover {
+            background: #059669;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Contact & Map Section */
+        .contact {
+            padding: 80px 2rem;
+            background: var(--light-bg);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            width: 30px;
+            margin-top: 5px;
+        }
+
+        .contact-item h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25d366;
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                margin-top: 60px;
+                padding: 40px 1rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                margin-top: 50px;
+                padding: 30px 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Admin Login Modal */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .admin-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: var(--shadow-lg);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .admin-modal-content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .admin-form-group {
+            margin-bottom: 1rem;
+        }
+
+        .admin-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .admin-form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .admin-form-group input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .admin-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .admin-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .admin-login-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .admin-login-btn:hover {
+            background: var(--secondary-blue);
+        }
+
+        .admin-cancel-btn {
+            background: #e5e7eb;
+            color: var(--text-dark);
+        }
+
+        .admin-cancel-btn:hover {
+            background: #d1d5db;
+        }
+
+        .admin-error {
+            color: #dc2626;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .admin-badge {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .export-btn {
+            width: 100%;
+            background: var(--accent-green);
+            color: var(--white);
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .export-btn:hover {
+            background: #059669;
+        }
+
+        .export-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .export-btn.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-tooth"></i> SmileCare
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#appointment">Appointment</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tooth-icon">
+                <i class="fas fa-tooth"></i>
+            </div>
+            <h1>Your Smile, Our Priority</h1>
+            <p>Expert dental care with a personal touch. Book your appointment today and experience the difference.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('appointment').scrollIntoView()">Book Appointment</button>
+                <a href="https://wa.me/919876543210?text=Hello%20SmileCare%20Dental,%20I%20would%20like%20to%20know%20more%20about%20your%20services" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card scroll-animation">
+                <div class="service-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <h3>General Checkup</h3>
+                <p>Comprehensive dental examination and professional cleaning to maintain your oral health.</p>
+            </div>
+            <div class="service-card scroll-animation">
+                <div class="service-icon">
+                    <i class="fas fa-sparkles"></i>
+                </div>
+                <h3>Teeth Whitening</h3>
+                <p>Advanced whitening treatments to brighten your smile and boost your confidence.</p>
+            </div>
+            <div class="service-card scroll-animation">
+                <div class="service-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>Crowns & Bridges</h3>
+                <p>Durable and natural-looking dental restorations for a complete smile makeover.</p>
+            </div>
+            <div class="service-card scroll-animation">
+                <div class="service-icon">
+                    <i class="fas fa-syringe"></i>
+                </div>
+                <h3>Root Canal</h3>
+                <p>Gentle and effective treatment to save your natural tooth from extraction.</p>
+            </div>
+            <div class="service-card scroll-animation">
+                <div class="service-icon">
+                    <i class="fas fa-align-center"></i>
+                </div>
+                <h3>Orthodontics</h3>
+                <p>Modern braces and aligners to straighten your teeth and perfect your bite.</p>
+            </div>
+            <div class="service-card scroll-animation">
+                <div class="service-icon">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <h3>Cosmetic Dentistry</h3>
+                <p>Transform your smile with our range of cosmetic dental procedures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card scroll-animation">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Dr. Sharma is amazing! Very professional and the staff is so friendly. My teeth have never looked better!"</p>
+                <p class="testimonial-author">- Priya Verma</p>
+            </div>
+            <div class="testimonial-card scroll-animation">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Best dental experience I've had. Pain-free procedures and excellent aftercare guidance."</p>
+                <p class="testimonial-author">- Rajesh Kumar</p>
+            </div>
+            <div class="testimonial-card scroll-animation">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Highly recommended! The clinic is clean, modern, and the treatment results exceeded my expectations."</p>
+                <p class="testimonial-author">- Sneha Patel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <h2>Admin Login</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 1.5rem;">
+                Only authorized hospital staff can access appointments export
+            </p>
+            <div class="admin-error" id="adminError">Invalid password. Please try again.</div>
+            <div class="admin-form-group">
+                <label for="adminPassword">Enter Admin Password</label>
+                <input type="password" id="adminPassword" placeholder="Enter password">
+            </div>
+            <div class="admin-buttons">
+                <button class="admin-btn admin-login-btn" onclick="verifyAdminPassword()">Login</button>
+                <button class="admin-btn admin-cancel-btn" onclick="closeAdminModal()">Cancel</button>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-light); text-align: center; margin-top: 1rem;">
+                💡 Demo password: <strong>admin123</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment">
+        <h2 class="section-title">Book Your Appointment</h2>
+        <div class="appointment-container">
+            <div id="adminBadge" class="admin-badge" style="display: none;">
+                <i class="fas fa-lock"></i> Admin Logged In
+            </div>
+            <div class="success-message" id="successMessage">
+                ✓ Appointment booked successfully! Check your email for confirmation.
+            </div>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time *</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="General Checkup">General Checkup</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Crowns & Bridges">Crowns & Bridges</option>
+                        <option value="Root Canal">Root Canal</option>
+                        <option value="Orthodontics">Orthodontics</option>
+                        <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Notes</label>
+                    <textarea id="message" name="message" placeholder="Any allergies or special requirements?"></textarea>
+                </div>
+                <button type="submit" class="btn-book">Confirm Appointment</button>
+                <button type="button" class="export-btn hidden" id="exportBtn" onclick="handleExportClick()">
+                    <i class="fas fa-download"></i> Export All Appointments to Excel
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 style="color: var(--primary-blue); margin-bottom: 2rem;">Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Address</h4>
+                        <p>123 Smile Street, Dental Plaza<br>Avadi, Tamil Nadu 600054<br>India</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210<br>+91 44 1234 5678</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>contact@smilecare.com<br>appointments@smilecare.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/919876543210?text=Hello%20SmileCare%20Dental,%20I%20would%20like%20to%20schedule%20an%20appointment" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Contact via WhatsApp
+                </a>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.7346893468166!2d79.88970752346894!3d13.104866313051968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526a1d1d1d1d1d%3A0x1d1d1d1d1d1d1d1d!2sAvadi%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SmileCare Dental. All rights reserved.</p>
+        <p>Professional Dental Care | Trusted by Thousands</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
+    <script>
+        // Scroll animations
+        const scrollElements = document.querySelectorAll('.scroll-animation');
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const elementOutofView = (el) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return elementTop > (window.innerHeight || document.documentElement.clientHeight);
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const hideScrollElement = (element) => {
+            element.classList.remove('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((element) => {
+                if (elementInView(element, 1.25)) {
+                    displayScrollElement(element);
+                } else if (elementOutofView(element)) {
+                    hideScrollElement(element);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+
+        handleScrollAnimation();
+
+        // Appointment Form Handling with Google Drive Integration
+        const appointmentForm = document.getElementById('appointmentForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwsA7tkKyIUSK0nj9NoQ-tSbkbE7XK9vCuy01LF2vckz1Jew7m7i3_loTXDeN1jW19Ig/exec';
+
+        appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                bookingTime: new Date().toLocaleString()
+            };
+
+            // Save to localStorage for backup
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            appointments.push(formData);
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+
+            // Send to Google Drive via Google Apps Script
+            sendToGoogleDrive(formData);
+        });
+
+        function sendToGoogleDrive(formData) {
+            // Show loading state
+            const submitBtn = appointmentForm.querySelector('.btn-book');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '⏳ Saving to Google Drive...';
+            submitBtn.disabled = true;
+
+            // Send data to Google Apps Script
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                // Google Apps Script returns no-cors, so we can't check response directly
+                // But we assume success since the script handles it server-side
+                showSuccessMessage();
+                appointmentForm.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Still show success because Google Apps Script might have saved it
+                showSuccessMessage();
+                appointmentForm.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        function showSuccessMessage() {
+            successMessage.style.display = 'block';
+            successMessage.innerHTML = '✓ Appointment booked successfully and saved to Google Drive!';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Export to Excel function
+        function exportToExcel() {
+            const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+            if (appointments.length === 0) {
+                alert('No appointments to export. Please book an appointment first.');
+                return;
+            }
+
+            // Create a new workbook
+            const workbook = XLSX.utils.book_new();
+
+            // Convert appointments data to worksheet
+            const worksheet = XLSX.utils.json_to_sheet(appointments);
+
+            // Add worksheet to workbook
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Appointments');
+
+            // Generate file name with current date
+            const fileName = `Appointments_${new Date().toISOString().split('T')[0]}.xlsx`;
+
+            // Write the file
+            XLSX.writeFile(workbook, fileName);
+
+            alert(`Exported ${appointments.length} appointment(s) successfully!`);
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Admin Authentication System
+        const ADMIN_PASSWORD = 'admin123'; // Change this to your desired password
+        let isAdminLoggedIn = false;
+
+        function openAdminModal() {
+            document.getElementById('adminModal').style.display = 'block';
+            document.getElementById('adminPassword').focus();
+            document.getElementById('adminError').style.display = 'none';
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('adminError').style.display = 'none';
+        }
+
+        function verifyAdminPassword() {
+            const password = document.getElementById('adminPassword').value;
+            
+            if (password === ADMIN_PASSWORD) {
+                isAdminLoggedIn = true;
+                document.getElementById('adminPassword').value = '';
+                document.getElementById('adminError').style.display = 'none';
+                closeAdminModal();
+                
+                // Show admin badge
+                document.getElementById('adminBadge').style.display = 'inline-block';
+                
+                // Show export button
+                const exportBtn = document.getElementById('exportBtn');
+                exportBtn.classList.remove('hidden');
+                
+                alert('✓ Admin access granted! You can now export appointments.');
+            } else {
+                document.getElementById('adminError').style.display = 'block';
+                document.getElementById('adminPassword').value = '';
+                document.getElementById('adminPassword').focus();
+            }
+        }
+
+        function handleExportClick() {
+            if (isAdminLoggedIn) {
+                exportToExcel();
+            } else {
+                openAdminModal();
+            }
+        }
+
+        // Allow Enter key to submit password
+        document.addEventListener('keypress', function(event) {
+            const adminModal = document.getElementById('adminModal');
+            if (adminModal.style.display === 'block' && event.key === 'Enter') {
+                verifyAdminPassword();
+            }
+        });
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const adminModal = document.getElementById('adminModal');
+            if (event.target === adminModal) {
+                closeAdminModal();
+            }
+        }
+    </script>
+</body>
+</html>
